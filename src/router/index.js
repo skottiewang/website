@@ -5,6 +5,7 @@ import PageHeader from '@/components/PageHeader'
 import Header from '@/components/Header'
 import Banner from '@/components/Banner'
 import Summary from '@/components/Summary'
+import Login from '@/components/Login'
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
       path: '/summary',
       name: 'Summary',
       component: Summary
-    }
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
+    },
   ]
 })

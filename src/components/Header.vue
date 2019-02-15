@@ -22,7 +22,6 @@
             <Option value="https">找项目</Option>
             <Option value="https">找文章</Option>
           </Select>
-          <!-- <Button slot="append" icon="ios-search"/> -->
           </Input>
 
           <div class="hot-search">
@@ -31,7 +30,6 @@
                :key="index"
                class="search-items">
               {{ item.label }}
-            </span>
           </a></div>
         </div>
 

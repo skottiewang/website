@@ -1,24 +1,27 @@
 <template>
-  <div class="pageheader_container">
-    <div class="left_bar">
-      <span>{{ msg.title }}</span>
-      <span>{{ msg.number }}</span>
-    </div>
+  <div class="pageheader">
+    <div class="container">
+      <div class="left_bar">
+        <span>{{ msg.title }}</span>
+        <span>{{ msg.number }}</span>
+      </div>
 
-    <div class="right_bar">
-      <div class="login">
-        <Icon type="ios-contact-outline" size="16" style="margin-right: 4px"/>
-        <a>{{ msg.login }}</a>
+      <div class="right_bar">
+        <div class="login">
+          <Icon type="ios-contact-outline" size="16" style="margin-right: 4px"/>
+          <a>{{ msg.login }}</a>
+        </div>
+        <div class="bar_msgs" v-for="(item,index) in msgs" :key="index">
+          <a>{{ item }}</a>
+        </div>
+        <div>
+          <Icon type="ios-text" size="16"/>
+          <Icon type="logo-vimeo" size="14"/>
+        </div>
+        <a class="btn">{{ msg.btntext }}</a>
       </div>
-      <div class="bar_msgs" v-for="(item,index) in msgs" :key="index">
-        <a>{{ item }}</a>
-      </div>
-      <div>
-        <Icon type="ios-text" size="16"/>
-        <Icon type="logo-vimeo" size="14"/>
-      </div>
-      <div class="btn">{{ msg.btntext }}</div>
     </div>
+   
   </div>
 </template>
 <script>
@@ -39,12 +42,18 @@
 </script>
 
 <style scoped>
-.pageheader_container {
+.pageheader {
   background-color: rgb(239, 239, 239);
-  height: 36px;
+}
+.container {
   display: flex;
   justify-content: space-between;
-  padding: 0 50px;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1200px;
+  min-width: 1200px;
+  height: 36px;
 }
 .top_nav {
   line-height: 14;
@@ -74,5 +83,12 @@
 }
 .btn {
   background-color: #b90c0e;
+  color: #ffffff;
+  text-align: center;
+  font-size: 12px;
+  width: 104px;
+  height: 20px;
+  line-height: 20px;
+  margin-left:8px;
 }
 </style>
