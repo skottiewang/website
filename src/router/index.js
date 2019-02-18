@@ -6,6 +6,7 @@ import Header from '@/components/Header'
 import Banner from '@/components/Banner'
 import Summary from '@/components/Summary'
 import Login from '@/components/Login'
+import Founds from '@/components/Founds'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/login',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/founds',
+      name: 'Founds',
+      component: Founds
     },
   ]
 })

@@ -10,7 +10,7 @@
       </div>
     </div>
 
-    <div class="login_tab_login">
+    <div class="login_tab_login" v-if="isLogin">
       <Form class="login_form">
         <FormItem>
           <Input v-model="formCustom.account" placeholder="手机号码">
@@ -35,6 +35,51 @@
         </FormItem>
       </Form>
     </div>
+
+    <div class="login_tab_signup" v-else>
+      <Form class="login_form">
+        <FormItem>
+          <Input v-model="formCustom.account" placeholder="手机号码">
+          </Input>
+        </FormItem>
+
+        <FormItem>
+          <Row class="login_compute">
+            <Col span="12">
+            <Input v-model="formCustom.password" placeholder="密码">
+            </Input>
+            </Col>
+            <Col span="2"><div/></Col>
+            <Col span="10">
+            <div class="login_compute_box"/>
+            </Col>
+          </Row>
+        </FormItem>
+        <FormItem>
+          <Row class="login_compute">
+            <Col span="12">
+            <Input v-model="formCustom.password" placeholder="请输入验证码">
+            </Input>
+            </Col>
+            <Col span="2"><div/></Col>
+            <Col span="10">
+            <Button class="login_get_code">{{ getCode }}</Button>
+            </Col>
+          </Row>
+        </FormItem>
+
+        <div class='login_loginitem'>
+          <FormItem>
+            <Checkbox v-model="isAutoLogin" class='login_checkbox'>{{ readAgreement }}</Checkbox>
+          </FormItem>
+        </div>
+
+        <FormItem>
+          <Button class='login_button' type="primary">{{ signup }}</Button>
+        </FormItem>
+      </Form>
+    </div>
+
   </div>
 </template>
 <script>
@@ -42,6 +87,9 @@
     name: 'Login',
     data () {
       return {
+        phoneNumber: '手机号码11',
+        getCode: '获取验证码',
+        readAgreement: '我已阅读并同意《投融界服务协议》',
         forgetPassword: '忘记密码?',
         autoLogin: '两周内自动登录',
         isAutoLogin: '',
@@ -52,7 +100,7 @@
         },
         currentIndex: '',
         login: '登录',
-        signup: '注册',
+        signup: '免费注册',
         msg: {
           title: '客服热线:',
           number: '400-858-9000',
@@ -70,11 +118,15 @@
         this.currentIndex = index
       },
       wrapCls (index) {
-        console.log(index)
         return {
           'login_tabpane_highlight': this.currentIndex === index,
           'login_tabpane': this.currentIndex !== index,
         }
+      }
+    },
+    computed: {
+      isLogin () {
+        return this.currentIndex === 0
       }
     }
   }
@@ -109,17 +161,24 @@
   text-align: center;
   opacity: 0.5;
 }
-/* .login_signup {
-  background-color: #333;
-  width: 140px;
-  height: 40px;
-  text-align: center;
-  color: #ccc;
-} */
 .login_tab_login {
   width: 280px;
   height: 240px;
   background-color: rgba(51,51,51,0.5)
+}
+.login_tab_signup {
+  width: 280px;
+  height: 280px;
+  background-color: rgba(51,51,51,0.5)
+}
+.login_compute {
+  display: flex;
+  justify-content: space-between;
+}
+.login_compute_box {
+  height: 33px;
+  width: 100%;
+  background-color: #ffffff;
 }
 .login_form {
   width: 80%;

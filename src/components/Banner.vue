@@ -52,4 +52,7 @@
 .banner_container {
   position: relative;
 }
+.banner {
+  background-color: #ffffff;
+}
 </style>

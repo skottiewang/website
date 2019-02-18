@@ -102,6 +102,9 @@
 </script>
 
 <style scoped>
+.header {
+  background-color: #ffffff;
+}
 .container {
   height: 94px;
   width: 1200px;

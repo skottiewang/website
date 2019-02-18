@@ -2,8 +2,8 @@
   <div class="pageheader">
     <div class="container">
       <div class="left_bar">
-        <span>{{ msg.title }}</span>
-        <span>{{ msg.number }}</span>
+        <span class="pageheader_phone_label">{{ msg.title }}</span>
+        <span class="pageheader_phone_number">{{ msg.number }}</span>
       </div>
 
       <div class="right_bar">
@@ -90,5 +90,13 @@
   height: 20px;
   line-height: 20px;
   margin-left:8px;
+}
+.pageheader_phone_label {
+  color: #999;
+}
+.pageheader_phone_number {
+  color: #b90c0e;
+  font-size: 18px;
+  margin-left: 8px;
 }
 </style>
