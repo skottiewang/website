@@ -15,6 +15,7 @@
           <img src="../assets/banner_04.jpg">
         </CarouselItem>
       </Carousel>
+      <div class="test"/>
       <Login class="banner_login"/>
     </div>
    

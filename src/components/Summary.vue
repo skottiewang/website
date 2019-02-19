@@ -88,6 +88,11 @@
   display: flex;
   align-items: center;
 }
+.summary_item_box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
 .summary_first_item {
   text-align: end;
 }
@@ -122,9 +127,6 @@
   font-size: 16px;
   color: #666666;
   line-height: 32px;
-}
-summary_icon_style {
-
 }
 .summary_label_style {
   font-size: 16px;

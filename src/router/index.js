@@ -7,6 +7,11 @@ import Banner from '@/components/Banner'
 import Summary from '@/components/Summary'
 import Login from '@/components/Login'
 import Founds from '@/components/Founds'
+import SuccessCase from '@/components/SuccessCase'
+import CardContainer from '@/components/CardContainer'
+import Advertisement from '@/components/Advertisement'
+import Investor from '@/components/Investor'
+
 
 Vue.use(Router)
 
@@ -47,5 +52,25 @@ export default new Router({
       name: 'Founds',
       component: Founds
     },
+    {
+      path: '/cardcontainer',
+      name: 'CardContainer',
+      component: CardContainer
+    },
+    {
+      path: '/successcase',
+      name: 'SuccessCase',
+      component: SuccessCase
+    },
+    {
+      path: '/advertisement',
+      name: 'Advertisement',
+      component: Advertisement
+    },
+    {
+      path: '/investor',
+      name: 'Investor',
+      component: Investor
+    }
   ]
 })

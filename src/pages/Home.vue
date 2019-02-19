@@ -5,6 +5,9 @@
     <Banner/>
     <Summary/>
     <Founds/>
+    <SuccessCase/>
+    <Advertisement/>
+    <Investor/>
   </div>
 </template>
 
@@ -14,6 +17,9 @@
   import Banner from '@/components/Banner'
   import Summary from '@/components/Summary'
   import Founds from '@/components/Founds'
+  import SuccessCase from '@/components/SuccessCase'
+  import Advertisement from '@/components/Advertisement'
+  import Investor from '@/components/Investor'
 
   export default {
     components: {
@@ -21,7 +27,10 @@
       PageHeader,
       Banner,
       Summary,
-      Founds
+      Founds,
+      SuccessCase,
+      Advertisement,
+      Investor
     }
   }
 </script>
