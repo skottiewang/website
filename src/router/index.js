@@ -11,6 +11,12 @@ import SuccessCase from '@/components/SuccessCase'
 import CardContainer from '@/components/CardContainer'
 import Advertisement from '@/components/Advertisement'
 import Investor from '@/components/Investor'
+import Project from '@/components/Project'
+import test from '@/components/test'
+import Recommend from '@/components/Recommend'
+import FlexCard from '@/components/FlexCard'
+import Interview from '@/components/Interview'
+import Subject from '@/components/Subject'
 
 
 Vue.use(Router)
@@ -71,6 +77,36 @@ export default new Router({
       path: '/investor',
       name: 'Investor',
       component: Investor
+    },
+    {
+      path: '/test',
+      name: 'test',
+      component: test
+    },
+    {
+      path: '/project',
+      name: 'Project',
+      component: Project
+    },
+    {
+      path: '/recommend',
+      name: 'Recommend',
+      component: Recommend
+    },
+    {
+      path: '/flexcard',
+      name: 'FlexCard',
+      component: FlexCard
+    },
+    {
+      path: '/interview',
+      name: 'Interview',
+      component: Interview
+    },
+    {
+      path: '/subject',
+      name: 'Subject',
+      component: Subject
     }
   ]
 })

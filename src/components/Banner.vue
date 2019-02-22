@@ -15,8 +15,9 @@
           <img src="../assets/banner_04.jpg">
         </CarouselItem>
       </Carousel>
-      <div class="test"/>
-      <Login class="banner_login"/>
+      <div class="banner_login_container">
+        <Login class="banner_login"/>
+      </div>
     </div>
    
   </div>
@@ -47,7 +48,7 @@
 <style scoped>
 .banner_login {
   position: absolute;
-  right: 120px;
+  right: 0px;
   top: 50px;
 }
 .banner_container {
@@ -55,5 +56,13 @@
 }
 .banner {
   background-color: #ffffff;
+}
+.banner_login_container {
+  width: 1200px;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 </style>

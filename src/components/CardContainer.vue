@@ -66,7 +66,7 @@
 .founds_red_tag {
   width: 3px;
   height: 24px;
-  background: #b81c22;
+  background: #409EFF;
   position: absolute;
   left: -22px;
   top: 26px;

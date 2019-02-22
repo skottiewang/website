@@ -7,7 +7,7 @@
         <img :src="item.imgurl">
         <div class="founds_card_item_title">{{ item.title }}</div>
         <div class="founds_card_item_des">{{ item.description }}</div>
-        <Icon class="founds_card_item_icon" :type="item.iconname" color="#fff" size="28"/>
+        <Icon class="founds_card_item_icon" :type="item.iconname" color="#fff" size="32"/>
         <div class="founds_card_info">
           <div class="founds_card_info_title">{{ item.title }}</div>
           <div class="founds_card_info_divider"/>
@@ -114,12 +114,12 @@
   font-weight: bold;
   color: #fff;
   position: absolute;
-  top: 244px;
+  top: 144px;
   height: 36px;
 }
 .founds_card_item_des {
   position: absolute;
-  top: 293px;
+  top: 193px;
   text-align: center;
   color: #fff;
   font-size: 14px;
@@ -128,7 +128,7 @@
 }
 .founds_card_item_icon {
   position: absolute;
-  top: 330px;
+  top: 230px;
 }
 .founds_card_info {
   position: absolute;

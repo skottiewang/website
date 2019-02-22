@@ -8,6 +8,11 @@
     <SuccessCase/>
     <Advertisement/>
     <Investor/>
+    <Project/>
+    <Recommend/>
+    <Interview/>
+    <Advertisement/>
+    <Subject/>
   </div>
 </template>
 
@@ -20,6 +25,10 @@
   import SuccessCase from '@/components/SuccessCase'
   import Advertisement from '@/components/Advertisement'
   import Investor from '@/components/Investor'
+  import Project from '@/components/Project'
+  import Recommend from '@/components/Recommend'
+  import Interview from '@/components/Interview'
+  import Subject from '@/components/Subject'
 
   export default {
     components: {
@@ -30,7 +39,11 @@
       Founds,
       SuccessCase,
       Advertisement,
-      Investor
+      Investor,
+      Project,
+      Recommend,
+      Interview,
+      Subject
     }
   }
 </script>

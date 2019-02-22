@@ -16,7 +16,7 @@
         </div>
         
         <div class="search_bar">
-          <Input size="large" search enter-button>
+          <Input size="large" search enter-button :placeholder="placeholder">
           <Select v-model="selectOne" slot="prepend" style="width: 80px">
             <Option value="findmoney">找资金</Option>
             <Option value="https">找项目</Option>
@@ -45,6 +45,7 @@
         hotSearch: '热门搜索：',
         selectOne: 'findmoney',
         logoDes: '专业的融资信息服务平台',
+        placeholder: '输入关键字',
         searchItems: [
           {
             label: '投资创业',
