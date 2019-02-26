@@ -13,6 +13,7 @@
     <Interview/>
     <Advertisement/>
     <Subject/>
+    <Foot/>
   </div>
 </template>
 
@@ -29,6 +30,8 @@
   import Recommend from '@/components/Recommend'
   import Interview from '@/components/Interview'
   import Subject from '@/components/Subject'
+  import Foot from '@/components/Foot'
+  import LeftAffix from '@/components/LeftAffix'
 
   export default {
     components: {
@@ -43,7 +46,9 @@
       Project,
       Recommend,
       Interview,
-      Subject
+      Subject,
+      Foot,
+      LeftAffix
     }
   }
 </script>
@@ -52,6 +57,10 @@
 .home_container {
   background-color: #f2f2f2;
   height: 100%;
+}
+.scroll_container {
+  position: relative;
+  overflow-y: scroll;
 }
 </style>
 

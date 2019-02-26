@@ -1,41 +1,44 @@
 <template>
-  <div class="header">
-    <div class="container">
-      <div class="header_logo">
-        <img src="../assets/logo.png">
-        <span class="header_description">{{ logoDes }}</span>
-      </div>
-      <div class="header_menu">
-        <div v-for="(item, index) in menuItems" 
-             :key="index" 
-             class="menu_font">
-          <a class="font_label">
-            {{ item.label }}
-          </a>
-          <Icon :type="item.icon"/>
+  <Affix>
+    <div class="header">
+      <div class="container">
+        <div class="header_logo">
+          <img src="../assets/logo.png">
+          <span class="header_description">{{ logoDes }}</span>
         </div>
+        <div class="header_menu">
+          <div v-for="(item, index) in menuItems" 
+               :key="index" 
+               class="menu_font">
+            <a class="font_label">
+              {{ item.label }}
+            </a>
+            <Icon :type="item.icon"/>
+          </div>
         
-        <div class="search_bar">
-          <Input size="large" search enter-button :placeholder="placeholder">
-          <Select v-model="selectOne" slot="prepend" style="width: 80px">
-            <Option value="findmoney">找资金</Option>
-            <Option value="https">找项目</Option>
-            <Option value="https">找文章</Option>
-          </Select>
+          <div class="search_bar">
+            <Input size="large" search enter-button :placeholder="placeholder">
+            <Select v-model="selectOne" slot="prepend" style="width: 80px">
+              <Option value="findmoney">找资金</Option>
+              <Option value="https">找项目</Option>
+              <Option value="https">找文章</Option>
+            </Select>
           </Input>
 
-          <div class="hot-search">
-            <span class="hot-search-font">{{ hotSearch }}</span>
-            <a v-for="(item, index) in searchItems" 
-               :key="index"
-               class="search-items">
-              {{ item.label }}
-          </a></div>
-        </div>
+            <div class="hot-search">
+              <span class="hot-search-font">{{ hotSearch }}</span>
+              <a v-for="(item, index) in searchItems" 
+                 :key="index"
+                 class="search-items">
+                {{ item.label }}
+            </a></div>
+          </div>
 
+        </div>
       </div>
     </div>
-  </div>
+  </Affix>
+  
 </template>
 <script>
   export default {
@@ -105,6 +108,8 @@
 <style scoped>
 .header {
   background-color: #ffffff;
+  box-shadow: 0 8px 10px -7px rgba(0,0,0,.1);
+  z-index: 100;
 }
 .container {
   height: 94px;
@@ -141,6 +146,9 @@
 }
 .font_label {
   color: #222;
+}
+.font_label:hover {
+  color: #2d8cf0;
 }
 .search_bar {
   margin-left:30px;

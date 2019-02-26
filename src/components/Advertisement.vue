@@ -1,6 +1,7 @@
 <template>
   <div class="adv_container">
-    <img src="../assets/adv.jpg">
+    <!-- <img src="../assets/adv.jpg"> -->
+    <div class="adv_img"/>
   </div>
 </template>
 <script>
@@ -19,15 +20,11 @@
 </script>
 
 <style scoped>
-.banner_login {
-  position: absolute;
-  right: 120px;
-  top: 50px;
-}
-.banner_container {
-  position: relative;
-}
-.banner {
-  background-color: #ffffff;
+.adv_img {
+  display: block;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(https://www.trjcn.com/upfile/page_item/2018/06/588_1530254378.jpg);
 }
 </style>

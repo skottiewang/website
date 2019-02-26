@@ -1,7 +1,7 @@
 <template>
   <CardContainer :title="cardTitle">
     <div class="case_card_wrap">
-      <swiper :options="swiperOption">
+      <swiper :options="swiperOption" class="case_card_swiper_container">
         <swiper-slide v-for="(item, index) in cardGroup"
                       :key="index"
                       class="case_card_item">
@@ -124,11 +124,11 @@
 }
 .case_card_shadow {
   position: absolute;
-  left: 16px;
-  bottom: -10px;
-  width: 240px;
+  left: 0px;
+  bottom: 0px;
+  width: 258px;
   height: 100px;
-  box-shadow: 0 5px 20px rgba(0,0,0,.1);
+  box-shadow: 0 8px 10px -7px rgba(0,0,0,.1);
   z-index: 1;
   display: block;
 }
@@ -141,10 +141,16 @@
 .case_card_item:hover {
   border: 1px solid #b81c22;
 }
+.case_card_item:hover .case_card_shadow {
+  display: none;
+}
 .case_card_item:hover .case_card_item_desc {
   color:  #b81c22;
 }
 .case_card_item:hover .case_card_item_title {
   color:  #b81c22;
+}
+.case_card_swiper_container {
+  height: 238px;
 }
 </style>

@@ -17,6 +17,8 @@ import Recommend from '@/components/Recommend'
 import FlexCard from '@/components/FlexCard'
 import Interview from '@/components/Interview'
 import Subject from '@/components/Subject'
+import Foot from '@/components/Foot'
+import LeftAffix from '@/components/LeftAffix'
 
 
 Vue.use(Router)
@@ -107,6 +109,16 @@ export default new Router({
       path: '/subject',
       name: 'Subject',
       component: Subject
+    },
+    {
+      path: '/foot',
+      name: 'Foot',
+      component: Foot
+    },
+    {
+      path: '/leftaffix',
+      name: 'LeftAffix',
+      component: LeftAffix
     }
   ]
 })

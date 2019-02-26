@@ -64,7 +64,7 @@
   padding-left: 22px;
   position: relative;
   /* background-color: aliceblue; */
-  height: 500px;
+  height: 100%;
   display: flex;
 }
 .flexcard_left_part_title_text {
@@ -73,8 +73,8 @@
   color: #333;
 }
 .flexcard_left_part {
-  width: 810px;
-  height: 428px;
+  width: 788px;
+  height: 100%;
 }
 .flexcard_left_part_title {
   position: relative;

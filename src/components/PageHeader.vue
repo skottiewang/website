@@ -82,7 +82,7 @@
   align-items: center;
 }
 .btn {
-  background-color: #b90c0e;
+  background-color: #2d8cf0;
   color: #ffffff;
   text-align: center;
   font-size: 12px;
