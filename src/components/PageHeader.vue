@@ -21,9 +21,10 @@
         <a class="btn">{{ msg.btntext }}</a>
       </div>
     </div>
-   
+    <FoundModal/>
   </div>
 </template>
+
 <script>
   export default {
     name: 'PageHeader',

@@ -19,6 +19,8 @@ import Interview from '@/components/Interview'
 import Subject from '@/components/Subject'
 import Foot from '@/components/Foot'
 import LeftAffix from '@/components/LeftAffix'
+import RightAffix from '@/components/RightAffix'
+import FoundModal from '@/components/FoundModal'
 
 
 Vue.use(Router)
@@ -119,6 +121,16 @@ export default new Router({
       path: '/leftaffix',
       name: 'LeftAffix',
       component: LeftAffix
+    },
+    {
+      path: '/rightaffix',
+      name: 'RightAffix',
+      component: RightAffix
+    },
+    {
+      path: '/foundmodal',
+      name: 'FoundModal',
+      component: FoundModal
     }
   ]
 })

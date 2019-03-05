@@ -4,15 +4,17 @@
     <Header/>
     <Banner/>
     <Summary/>
-    <Founds/>
-    <SuccessCase/>
+    <LeftAffix class="left_affix"/>
+    <RightAffix class="right_affix"/>
+    <Founds id="founds"/>
+    <SuccessCase id="successcase"/>
     <Advertisement/>
-    <Investor/>
-    <Project/>
-    <Recommend/>
-    <Interview/>
+    <Investor id="investor"/>
+    <Project id="project"/>
+    <Recommend id="recommend"/>
+    <Interview id="interview"/>
     <Advertisement/>
-    <Subject/>
+    <Subject id="subject"/>
     <Foot/>
   </div>
 </template>
@@ -32,6 +34,7 @@
   import Subject from '@/components/Subject'
   import Foot from '@/components/Foot'
   import LeftAffix from '@/components/LeftAffix'
+  import RightAffix from '@/components/RightAffix'
 
   export default {
     components: {
@@ -48,7 +51,8 @@
       Interview,
       Subject,
       Foot,
-      LeftAffix
+      LeftAffix,
+      RightAffix
     }
   }
 </script>
@@ -57,10 +61,25 @@
 .home_container {
   background-color: #f2f2f2;
   height: 100%;
-}
-.scroll_container {
   position: relative;
   overflow-y: scroll;
+}
+/* .scroll_container {
+  position: relative;
+  overflow-y: scroll;
+} */
+.left_affix {
+  position: absolute;
+  top: 687px;
+  left: 50%;
+  margin-left: -758px;
+  z-index: 110;
+}
+.right_affix {
+ position: absolute;
+ top: 687px;
+ right: 20px;
+ z-index: 110;
 }
 </style>
 

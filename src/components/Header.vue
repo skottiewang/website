@@ -1,5 +1,5 @@
 <template>
-  <Affix>
+  <Affix class="header_wrap">
     <div class="header">
       <div class="container">
         <div class="header_logo">
@@ -10,7 +10,9 @@
           <div v-for="(item, index) in menuItems" 
                :key="index" 
                class="menu_font">
-            <a class="font_label">
+            <a class="font_label"
+               @mouseenter="mouseEnter(index)"
+               @mouseleave="mouseLeave">
               {{ item.label }}
             </a>
             <Icon :type="item.icon"/>
@@ -37,14 +39,20 @@
         </div>
       </div>
     </div>
+    <FoundModal v-show="isShow"/>
   </Affix>
-  
 </template>
 <script>
+  import FoundModal from '@/components/FoundModal'
+
   export default {
     name: 'Header',
+    components: {
+      FoundModal
+    },
     data () {
       return {
+        isShow: false,
         hotSearch: '热门搜索：',
         selectOne: 'findmoney',
         logoDes: '专业的融资信息服务平台',
@@ -101,15 +109,25 @@
         ],
         msgs: ['注册', '新手指导', '投融服务', '手机投融界']
       }
+    },
+    methods: {
+      mouseEnter () {
+        this.isShow = true
+      },
+      mouseLeave () {
+        this.isShow = false
+      }
     }
   }
 </script>
 
 <style scoped>
+.header_wrap {
+  z-index: 100;
+}
 .header {
   background-color: #ffffff;
   box-shadow: 0 8px 10px -7px rgba(0,0,0,.1);
-  z-index: 100;
 }
 .container {
   height: 94px;

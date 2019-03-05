@@ -61,7 +61,7 @@
   width: 102px;
   height: 102px;
   border-radius: 50%;
-  z-index: 15;
+  z-index: 11;
 }
 .investor_card_container {
   display: flex;
