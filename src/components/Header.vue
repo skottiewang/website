@@ -1,62 +1,103 @@
 <template>
   <Affix class="header_wrap">
-    <div class="header">
-      <div class="container">
+    <div class="header_container" ref="headBox">
+      <div class="header_container_inside">
         <div class="header_logo">
           <img src="../assets/logo.png">
           <span class="header_description">{{ logoDes }}</span>
         </div>
+
         <div class="header_menu">
-          <div v-for="(item, index) in menuItems" 
-               :key="index" 
-               class="menu_font">
-            <a class="font_label"
-               @mouseenter="mouseEnter(index)"
-               @mouseleave="mouseLeave">
-              {{ item.label }}
-            </a>
-            <Icon :type="item.icon"/>
+          <div class="header_menu_item">
+            <a class="font_label">首页</a>
+          </div>
+
+          <div class="header_menu_item"
+               @mouseenter="mouseEnterFoundA"
+               @mouseleave="mouseLeaveFoundA">
+            <a class="font_label">找资金</a>
+            <Icon type="md-arrow-dropdown"/>
+            <FoundModal v-show="isFoundShow"
+                        @handl-enter="mouseEnterFoundM"
+                        @handl-leave="mouseLeaveFoundM"
+                        class="header_found_modal"
+                        ref="foundModal"/>
+          </div>
+
+          <div class="header_menu_item">
+            <a class="font_label">选项目</a>
+            <Icon type="md-arrow-dropdown"/>
+          </div>
+          <div class="header_menu_item">
+            <a class="font_label">融资活动</a>
+          </div>
+          <div class="header_menu_item">
+            <a class="font_label">商业计划书</a>
+          </div>
+          <div class="header_menu_item">
+            <a class="font_label">成功案例</a>
           </div>
         
           <div class="search_bar">
             <Input size="large" search enter-button :placeholder="placeholder">
             <Select v-model="selectOne" slot="prepend" style="width: 80px">
-              <Option value="findmoney">找资金</Option>
-              <Option value="https">找项目</Option>
-              <Option value="https">找文章</Option>
+              <Option v-for="(item, index) in optionGroup"
+                      :key="index"
+                      value="optionValue">{{ item.label }}</Option>
             </Select>
-          </Input>
+            </Input>
 
-            <div class="hot-search">
-              <span class="hot-search-font">{{ hotSearch }}</span>
+            <div class="head_hot_search">
+              <span class="head_hot_search_font">{{ hotSearch }}</span>
               <a v-for="(item, index) in searchItems" 
                  :key="index"
-                 class="search-items">
+                 class="head_hot_search_items">
                 {{ item.label }}
-            </a></div>
+              </a>
+            </div>
+            
           </div>
 
         </div>
       </div>
     </div>
-    <FoundModal v-show="isShow"/>
+
+    
   </Affix>
 </template>
 <script>
   import FoundModal from '@/components/FoundModal'
-
+  import ProjectModal from '@/components/ProjectModal'
   export default {
     name: 'Header',
     components: {
-      FoundModal
+      FoundModal,
+      ProjectModal
     },
     data () {
       return {
-        isShow: false,
+        wrapCls: this.isScroll ? 'header_container_scroll' : 'header_contaienr',
+        isScroll: false,
+        isFoundShowA: false,
+        isFoundShowM: false,
         hotSearch: '热门搜索：',
         selectOne: 'findmoney',
         logoDes: '专业的融资信息服务平台',
         placeholder: '输入关键字',
+        optionGroup: [
+          {
+            optionValue: 'findmoney',
+            label: '找资金'
+          },
+          {
+            optionValue: 'https',
+            label: '找项目'
+          },
+          {
+            optionValue: 'https',
+            label: '找文章'
+          }
+        ],
         searchItems: [
           {
             label: '投资创业',
@@ -110,26 +151,49 @@
         msgs: ['注册', '新手指导', '投融服务', '手机投融界']
       }
     },
-    methods: {
-      mouseEnter () {
-        this.isShow = true
-      },
-      mouseLeave () {
-        this.isShow = false
+    computed: {
+      isFoundShow () {
+        return this.isFoundShowA || this.isFoundShowM
       }
+    },
+    methods: {
+      mouseEnterFoundA () {
+        this.$refs.foundModal.$emit('animation')  //通知子组件执行出现动画
+        this.isFoundShowA = true
+      },
+      mouseLeaveFoundA () {
+        this.isFoundShowA = false
+      },
+      mouseEnterFoundM () {
+        // console.log('EnterM')
+        this.isFoundShowM = true
+      },
+      mouseLeaveFoundM () {
+        // console.log('LeaveM')
+        this.isFoundShowM = false
+      },
+      handleScroll () {
+        console.log('scrollTop', scrollTop)
+      }
+    },
+    mounted () {
+      this.box = this.$refs.headBox
+      this.box.addEventListener('scroll', this.handleScroll)
     }
   }
 </script>
 
 <style scoped>
 .header_wrap {
-  z-index: 100;
-}
-.header {
+  z-index: 300;
   background-color: #ffffff;
-  box-shadow: 0 8px 10px -7px rgba(0,0,0,.1);
+  position: relative;
 }
-.container {
+.header_container {
+  background-color: #ffffff;
+  position: relative;
+}
+.header_container_inside {
   height: 94px;
   width: 1200px;
   min-width: 1200px;
@@ -152,15 +216,21 @@
 }
 .header_menu {
   width: 893px;
+  height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
 }
-.menu_font {
+.header_menu_item {
   margin-left: 30px;
   font-size: 16px;
   font-weight: bold;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
 }
 .font_label {
   color: #222;
@@ -172,13 +242,13 @@
   margin-left:30px;
   width: 286px;
 }
-.search-items {
+.head_hot_search_items {
   margin-right: 8px;
   font-size: 12px;
   color: #999;
   line-height: 24px;
 }
-.hot-search {
+.head_hot_search {
   width: 300px;
   text-overflow: ellipsis;
   padding-top: 6px;
@@ -186,7 +256,7 @@
   overflow: hidden;
   white-space: nowrap;
 }
-.hot-search-font {
+.head_hot_search_font {
   color: #000;
 }
 .top_nav {
@@ -218,4 +288,11 @@
 .btn {
   background-color: #b90c0e;
 }
+/* .header_found_modal {
+  position: absolute;
+  top: 90px;
+  left: 0px;
+  z-index: 999;
+  transition:  all 2s;
+} */
 </style>

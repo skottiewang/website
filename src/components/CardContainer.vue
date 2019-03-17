@@ -1,16 +1,16 @@
 <template>
-  <div class="founds">
-    <div class="founds_container">
-      <div class="founds_card_title">
-        <div class="founds_red_tag"/>
-        <a class="founds_card_title_text">{{ title }}</a>
+  <div class="cc">
+    <div class="cc_container">
+      <div class="cc_card_title">
+        <div class="cc_red_tag"/>
+        <a class="cc_card_title_text">{{ title }}</a>
         <Button type="primary" v-if="buttonShow">{{ buttonText }}</Button>
       </div>
       <div>
         <slot/>
       </div>
-      <div class="founds_card_footer">
-        <a class="founds_footer_font">{{ viewMore }}</a>
+      <div class="cc_card_footer">
+        <a class="cc_footer_font">{{ viewMore }}</a>
       </div>
     </div>
   </div>
@@ -41,7 +41,11 @@
   }
 </script>
 <style>
-.founds_container {
+.cc {
+  z-index: 10;
+  position: relative;
+}
+.cc_container {
   width: 1200px;
   min-width: 1200px;
   margin-left: auto;
@@ -52,18 +56,18 @@
   padding: 0 22px;
   position: relative;
 }
-.founds_card_title_text {
+.cc_card_title_text {
   font-size: 24px;
   line-height: 75px;
   color: #333;
 }
-.founds_card_title {
+.cc_card_title {
   display: flex;
   justify-content: space-between;
   position: relative;
   border-bottom: 1px solid #e8e8e8;
 }
-.founds_red_tag {
+.cc_red_tag {
   width: 3px;
   height: 24px;
   background: #409EFF;
@@ -71,7 +75,7 @@
   left: -22px;
   top: 26px;
 }
-.founds_card_footer {
+.cc_card_footer {
   height: 52px;
   width: 100%;
   text-align: center;
@@ -79,7 +83,7 @@
   border-top: 1px solid #e8e8e8;
   margin-top: 24px;
 }
-.founds_footer_font {
+.cc_footer_font {
   font-size: 16px;
   color: #666;
 }

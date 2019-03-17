@@ -1,28 +1,25 @@
 <template>
-  <div class="foundmodal_container" 
+  <div class="projectmodal_container" 
        @mouseenter="$emit('handl-enter')" 
        @mouseleave="$emit('handl-leave')">
-    <transition name="fade" mode="out-in" appear>
-      <div class="foundmodal_background"
-           id="foundmodal_background"/>
-    </transition>
-    <div class="foundmodal_item_container">
+    <div class="projectmodal_background"/>
+    <div class="projectmodal_item_container">
       <div v-for="(item, index) in modalGroup"
            :key="index"
-           class="foundmodal_item">
-        <img :src="item.img" class="foundmodal_img">
-        <a class="foundmodal_title">{{ item.title }}</a>
-        <div class="foundmodal_label">{{ item.label }}</div>
+           class="projectmodal_item">
+        <img :src="item.img" class="projectmodal_img">
+        <a class="projectmodal_title">{{ item.title }}</a>
+        <div class="projectmodal_label">{{ item.label }}</div>
       </div>
     </div>
-    <div class="foundmodal_icon"/>
-    <div class="foundmodal_icon_shield"/>
+    <div class="projectmodal_icon"/>
+    <div class="projectmodal_icon_shield"/>
     
   </div>
 </template>
 <script>
   export default {
-    name: 'FoundModal',
+    name: 'ProjectModal',
     data () {
       return {
         modalGroup: [
@@ -46,62 +43,47 @@
     },
     methods: {
       handlEnter () {
+        console.log('insideenter')
         this.$emit('handl-enter')
       },
       handlLeave () {
+        console.log('insideleave')
         this.$emit('handl-leave')
-      },
-      handlAnimation () {
-        console.log('animation')
-        // var f = document.getElementById('foundmodal_background')
-        // f.style.left = (ev.clientX-125)+'px'
-        // f.style.top = (ev.clientY-125)+'px'
       }
-    },
-    mounted () {
-      this.$on('animation',()=>{
-        this.handlAnimation()
-      })
     }
   }
 </script>
 <style>
-.foundmodal_container {
+.projectmodal_container {
   width: 100%;
   border-top: 1px solid #e8e8e8;
-  border-bottom: 1px solid #e8e8e8;
-  position: absolute;
-  top: 90px;
-  left: 0px;
-  z-index: 999;
-  transition:  all 2s;
+  position: relative;
 }
-.foundmodal_item {
+.projectmodal_item {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 16px;
 }
-.foundmodal_img {
+.projectmodal_img {
   width: 65px;
 }
-.foundmodal_title {
+.projectmodal_title {
   font-size: 16px;
   margin-top: 16px;
   font-weight: bold;
   color: #333;
 }
-.foundmodal_label {
+.projectmodal_label {
   color: #999;
 }
-.foundmodal_background {
+.projectmodal_background {
   background-color: #fff;
   height: 200px;
   width: 100%;
   z-index: 160;
-  transition:  all 2s;
 }
-.foundmodal_item_container {
+.projectmodal_item_container {
   position: absolute;
   top: 16px;
   display: flex;
@@ -110,7 +92,7 @@
   margin-left: 34%;
   width: 540px;
 }
-.foundmodal_icon {
+.projectmodal_icon {
   border: 1px solid #e8e8e8;
   width: 24px;
   height: 24px;
@@ -121,7 +103,7 @@
   z-index: 150;
   transform:rotate(45deg);
 }
-.foundmodal_icon_shield {
+.projectmodal_icon_shield {
   width: 100px;
   height: 20px;
   background-color:#fff;

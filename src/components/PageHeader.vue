@@ -21,7 +21,6 @@
         <a class="btn">{{ msg.btntext }}</a>
       </div>
     </div>
-    <FoundModal/>
   </div>
 </template>
 

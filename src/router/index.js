@@ -21,6 +21,7 @@ import Foot from '@/components/Foot'
 import LeftAffix from '@/components/LeftAffix'
 import RightAffix from '@/components/RightAffix'
 import FoundModal from '@/components/FoundModal'
+import ProjectModal from '@/components/ProjectModal'
 
 
 Vue.use(Router)
@@ -131,6 +132,11 @@ export default new Router({
       path: '/foundmodal',
       name: 'FoundModal',
       component: FoundModal
+    },
+    {
+      path: '/projectmodal',
+      name: 'ProjectModal',
+      component: ProjectModal
     }
   ]
 })
